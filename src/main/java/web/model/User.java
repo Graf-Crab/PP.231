@@ -10,8 +10,7 @@ public class User {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
-    @SequenceGenerator(name = "seq_user", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
@@ -89,4 +88,14 @@ public class User {
         return Objects.hash(id, name, surname, profession, email);
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", profession='" + profession + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
