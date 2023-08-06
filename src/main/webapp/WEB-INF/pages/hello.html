@@ -2,10 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>User List</title>
+    <title>Users</title>
 </head>
 <body>
-<h1>User List</h1>
+
+<h2>Users</h2>
 <table>
     <tr>
         <th>ID</th>
@@ -13,14 +14,22 @@
         <th>Surname</th>
         <th>Profession</th>
         <th>Email</th>
+        <th>Action</th>
     </tr>
     <tr th:each="user : ${allusers}">
         <td th:text="${user.getId()}"></td>
         <td th:text="${user.getName()}"></td>
-        <td th:text="${user.surname}"></td>
-        <td th:text="${user.profession}"></td>
-        <td th:text="${user.email}"></td>
+        <td th:text="${user.getSurname()}"></td>
+        <td th:text="${user.getProfession()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td>
+            <a th:href="@{/{id}/edit(id=${user.getId()})}">Edit</a>
+            <a th:href="@{/{id}/delete(id=${user.getId()})}">Delete</a>
+        </td>
     </tr>
 </table>
+
+<h2>Add new user</h2>
+<a th:href="@{/add}">Add new user</a>
 </body>
 </html>
