@@ -41,4 +41,15 @@ public class UserController {
         userService.deleteUser(id);
         return "redirect:/";
     }
+
+    @GetMapping("/new")
+    public String newPerson(@ModelAttribute("user") User user) {
+        return "new";
+    }
+
+    @PostMapping()
+    public String create(@ModelAttribute("user") User user) {
+        userService.addUser(user);
+        return "redirect:/";
+    }
 }
