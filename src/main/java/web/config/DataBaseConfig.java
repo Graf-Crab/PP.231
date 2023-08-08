@@ -24,10 +24,13 @@ import java.util.Properties;
 @ComponentScan(value = "web")
 public class DataBaseConfig {
 
-    private final Environment env;
+
+    private final  Environment env;
+
     public DataBaseConfig(Environment env) {
         this.env = env;
     }
+
 
     @Bean
     public DataSource dataSource() {
