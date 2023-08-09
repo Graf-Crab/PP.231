@@ -1,20 +1,15 @@
 package web.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserDaoImpl implements  UserDao{
-    @Autowired
+public class UserDaoImpl implements UserDao {
     @PersistenceContext
-    private  EntityManager entityManager;
-
-
+    private EntityManager entityManager;
 
     @Override
     public List<User> getAllUsers() {
@@ -36,7 +31,6 @@ public class UserDaoImpl implements  UserDao{
         entityManager.persist(user);
     }
 
-
     @Override
     public void updateUser(int id, User userForUpdate) {
         User user = entityManager.find(User.class, id);
@@ -46,6 +40,4 @@ public class UserDaoImpl implements  UserDao{
         user.setEmail(userForUpdate.getEmail());
         entityManager.persist(user);
     }
-
-
 }

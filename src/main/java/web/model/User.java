@@ -7,21 +7,16 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "name")
     private String name;
-
     @Column(name = "surname")
     private String surname;
-
     @Column(name = "profession")
     private String profession;
-
     @Column(name = "email")
     private String email;
 
@@ -81,7 +76,6 @@ public class User {
                 Objects.equals(profession, user.profession) &&
                 Objects.equals(email, user.email);
     }
-
 
     @Override
     public int hashCode() {
